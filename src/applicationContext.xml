@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+	<!-- 配置Bean -->
+	<bean id="helloWorld" class="com.yth.spring.HelloWorld">
+		<property name="name" value="姚腾辉2"></property>
+	</bean>
+	<!-- 通过构造方法来配置Bean -->
+	<!-- 通过index只能给同一个构造器的不同位置上的参数区分赋值 -->
+	<bean id="car" class="com.yth.spring.Car">
+		<constructor-arg value="30" index="2"></constructor-arg>
+		<constructor-arg value="姚腾辉" index="1"></constructor-arg>
+		<constructor-arg index="0">
+			<value><![CDATA[哈哈哈》^]]></value>
+		</constructor-arg>
+	</bean>
+	<!-- 配置Car2 -->
+
+	<bean id="car2" class="com.yth.spring.Car" p:name="宝马i3" p:owner="姚腾辉"
+		p:prince="500000" p:tax="45434"></bean>
+	<!-- 配置person -->
+	<bean id="person1" class="com.yth.spring.Person">
+		<property name="name" value="姚腾辉"></property>
+		<property name="car">
+			<bean class="com.yth.spring.Car" p:name="思铂睿" p:owner="ly"
+				p:prince="34344" p:tax="556"></bean>
+		</property>
+	</bean>
+
+	<!-- 配置PersonCars 集合的Bean配置 -->
+	<bean id="personcars1" class="com.yth.spring.PersonCars" p:name="yth"
+		p:age="22">
+		<property name="cars" ref="ut">
+		</property>
+	</bean>
+	<util:list id="ut">
+		<ref bean="car" />
+		<bean class="com.yth.spring.Car"></bean>
+	</util:list>
+</beans>

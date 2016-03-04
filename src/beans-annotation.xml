@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	<!-- resource-pattern="c/*.class"用来指定要扫描的子包 <context:component-scan base-package="com.yth.spring.annotation" 
+		resource-pattern="c/*.class"> </context:component-scan> -->
+
+	<context:component-scan base-package="com.yth.spring.annotation"
+		use-default-filters="true">
+		<!-- 排除某个注解 annotation是基于注解类型来过滤的 <context:exclude-filter type="annotation" 
+			expression="org.springframework.stereotype.Service" /> -->
+		<!-- context:include-filter指定包含哪些注解 需要use-default-filters属性配合使用，默认为true也就是四个注解都包含 
+		<context:include-filter type="assignable"
+			expression="com.yth.spring.annotation.s.ServiceT" />
+			-->
+	</context:component-scan>
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:p="http://www.springframework.org/schema/p">
+	<bean id="
+	car " class="com.yth.spring.Car" p:owner="哈哈"
+		p:prince="20" p:tax="1" p:name="奥拓">
+	</bean>
+	<bean id="map" class="com.yth.spring.MapBean">
+		<property name="name">
+			<value> 一天</value>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="name" value="ee">
+				</entry>
+				<entry key="car" value-ref="car">
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>
